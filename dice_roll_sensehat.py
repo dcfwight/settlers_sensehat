@@ -1,5 +1,9 @@
-from random import choice, sample, shuffle
+from random import choice, sample, shuffle, randint
 import os
+
+def dice_throw():
+	"""return a tuple of two dice randomly"""
+	return(randint(1,6), randint(1,6))
 
 def create_full_deck(n):
 	"""create n full decks"""
@@ -10,9 +14,14 @@ def create_full_deck(n):
 				deck.append((d1,d2))
 	return deck
 
+def test():
+	pass
+
 def main():
-	deck = create_full_deck(1)
-	print (deck)
+	pass
+
+
 
 if __name__ == "__main__":
+	test()
 	main()
