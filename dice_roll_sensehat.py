@@ -14,13 +14,20 @@ def create_full_deck(n):
 				deck.append((d1,d2))
 	return deck
 
+def augment_deck(deck, n_remove=0, n_return=0):
+	"""from a deck of cards, shuffle them, remove n_remove cards
+	replace with n_return random cards"""
+	shuffle(deck) # this shuffles cards in-line
+	return deck
+
 def test():
-	pass
+	deck = create_full_deck(2)
+	print (deck)
+	deck = augment_deck(deck)
+	print (deck)
 
 def main():
 	pass
-
-
 
 if __name__ == "__main__":
 	test()
