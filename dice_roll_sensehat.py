@@ -39,7 +39,9 @@ def augment_deck(deck, n_remove=0, n_add=0):
 
 def report(roll, player):
 	d1, d2 = roll
-	for i in range(3):
+	while True:
+		if event.action:
+			break
 		sense.show_letter('A')
 		sleep(0.2)
 		sense.show_letter('7')
