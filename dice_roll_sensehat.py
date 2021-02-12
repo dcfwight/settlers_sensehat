@@ -207,11 +207,11 @@ def setup():
 	
 	elif custom_setup.upper() == 'N':
 		print ('custom setup chosen')
-		n_decks = input('How many decks of 36 cards do you want? ')
+		n_decks = int(input('How many decks of 36 cards do you want? '))
 		deck = create_full_deck(n_decks)
 		
-		n_remove = input('How many cards to remove? ')
-		n_add = input ('How many random cards to add? ')
+		n_remove = int(input('How many cards to remove? '))
+		n_add = int(input ('How many random cards to add? '))
 		deck = augment_deck(deck, n_remove = n_remmove, n_add = n_add)
 		
 	else:
