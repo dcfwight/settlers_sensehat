@@ -33,14 +33,15 @@ def augment_deck(deck, n_remove=0, n_add=0):
 
 	return deck
 
+def report(roll, player):
+	d1, d2 = roll
+	print ('{} rolled {}. {} + {}'.format(player, d1+d2, d1, d2))
+
 def test():
 	deck = create_full_deck(2)
-	print (deck)
-	print (len(deck))
 	deck = augment_deck(deck, n_remove = 10, n_add=10)
-	print (deck)
-	print (len(deck))
-
+	report(deck.pop(), 'Alice')
+	
 def main():
 	pass
 
