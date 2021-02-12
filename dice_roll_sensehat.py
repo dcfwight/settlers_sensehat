@@ -62,7 +62,78 @@ numbers = {
 	n,n,n,b,b,n,n,n,
 	n,n,b,n,b,n,n,n,
 	n,n,n,b,n,n,n,n,
-	n,n,b,b,b,n,n,n,
+	n,n,b,n,n,n,n,n,
+	n,n,b,b,b,b,n,n
+	],
+	3: [
+	n,n,b,b,b,b,n,n,
+	n,n,n,n,n,b,n,n,
+	n,n,n,b,b,b,n,n,
+	n,n,n,n,n,b,n,n,
+	n,n,b,b,b,b,n,n
+	],
+	4: [
+	n,n,n,n,b,n,n,n,
+	n,n,n,b,b,n,n,n,
+	n,n,b,n,b,n,n,n,
+	n,b,b,b,b,b,n,n,
+	n,n,n,n,b,n,n,n
+	],
+	5: [
+	n,n,n,b,b,b,n,n,
+	n,n,n,b,n,n,n,n,
+	n,n,n,b,b,b,n,n,
+	n,n,n,n,n,b,n,n,
+	n,n,n,b,b,b,n,n
+	],
+	6: [
+	n,n,n,n,b,b,n,n,
+	n,n,n,b,n,n,n,n,
+	n,n,n,b,b,b,n,n,
+	n,n,n,b,n,b,n,n,
+	n,n,n,b,b,b,n,n
+	],
+	7: [
+	n,n,b,b,b,b,n,n,
+	n,n,n,n,n,b,n,n,
+	n,n,n,n,b,n,n,n,
+	n,n,n,b,n,n,n,n,
+	n,n,b,n,n,n,n,n
+	],
+	8: [
+	n,n,n,b,b,b,n,n,
+	n,n,n,b,n,b,n,n,
+	n,n,n,b,b,b,n,n,
+	n,n,n,b,n,b,n,n,
+	n,n,n,b,b,b,n,n
+	],
+	9: [
+	n,n,n,b,b,b,n,n,
+	n,n,n,b,n,b,n,n,
+	n,n,n,b,b,b,n,n,
+	n,n,n,n,n,b,n,n,
+	n,n,n,n,n,b,n,n
+	],
+	10: [
+	n,n,b,n,b,b,b,n,
+	n,b,b,n,b,n,b,n,
+	n,n,b,n,b,n,b,n,
+	n,n,b,n,b,n,b,n,
+	n,n,b,n,b,b,b,n
+	],
+	11: [
+	n,n,b,n,n,b,n,n,
+	n,b,b,n,b,b,n,n,
+	n,n,b,n,n,b,n,n,
+	n,n,b,n,n,b,n,n,
+	n,n,b,n,n,b,n,n
+	],
+	12: [
+	n,n,b,n,n,b,b,n,
+	n,b,b,n,b,n,n,b,
+	n,n,b,n,n,n,b,n,
+	n,n,b,n,n,b,n,n,
+	n,n,b,n,b,b,b,b
 	]
 }
 
@@ -78,8 +149,7 @@ dice = {
 def construct_dice_display(d1,d2):
 	"""Creates the bottom half of the sense hat display showing dice"""
 	display = []
-	display+=numbers[2]
-	display+=[n for i in range(8)]
+	display+=numbers[d1+d2]
 	display+=d1[:3]
 	display+=[n,n]
 	display+=d2[:3]
@@ -92,11 +162,11 @@ def construct_dice_display(d1,d2):
 	return display
 
 def test():
-	display = construct_dice_display(dice[1], dice[5])
-	print(display)
-	print (len(display))
-	sense.set_pixels(display)
-	sleep(2)
+	for i in range(1,7):
+		for j in range(1,7):
+			display = construct_dice_display(dice[i], dice[j])
+			sense.set_pixels(display)
+			sleep(1)
 	sense.clear()
 	deck = create_full_deck(2)
 	deck = augment_deck(deck, n_remove = 10, n_add=10)
