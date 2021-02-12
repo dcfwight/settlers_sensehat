@@ -198,18 +198,30 @@ def setup():
 	print('Do you wish default deck (36 cards, 4 replaced with random ones)?')
 	custom_setup =''
 	while custom_setup.upper() not in ['Y','N']:
-		custom_setup = input('y for default, n to customise')
+		custom_setup = input('y for default, n to customise: ')
+	
 	if custom_setup.upper() == 'Y':
 		print('default setup chosen')
+		deck = create_full_deck(1)
+		deck = augment_deck(deck, n_remove=4, n_add=4)
+	
 	elif custom_setup.upper() == 'N':
 		print ('custom setup chosen')
+		n_decks = input('How many decks of 36 cards do you want? ')
+		deck = create_full_deck(n_decks)
+		
+		n_remove = input('How many cards to remove? ')
+		n_add = input ('How many random cards to add? ')
+		deck = augment_deck(deck, n_remove = n_remmove, n_add = n_add)
+		
 	else:
 		print ('we have a problem - not sure what chosen')
-	
+
+	return players_dict, player_order, deck
 	
 def main():
 	setup()
-	
+	print(deck)
 
 if __name__ == "__main__":
 	test()
