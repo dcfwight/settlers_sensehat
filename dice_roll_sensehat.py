@@ -178,8 +178,8 @@ def process_player(i, players_dict, player_order, initials):
 
 def test():
 	pass
-	
-def main():
+
+def setup():
 	print("Welcome to Settlers Fair Dice Engine!")
 
 	# set up the objects to hold player details
@@ -188,11 +188,28 @@ def main():
 	initials = set()
 	
 	n_players = int(input("How many players in the game? "))
+	print('OK, please enter them in the order you want to play')
 	for i in range(n_players):
 		players_dict, player_order, initials = process_player(i,
 			players_dict, player_order, initials)
 	print ('The players are:')
-	print (players_dict)
+	print (player_order)
+	
+	print('Do you wish default deck (36 cards, 4 replaced with random ones)?')
+	custom_setup =''
+	while custom_setup.upper() not in ['Y','N']:
+		custom_setup = input('y for default, n to customise')
+	if custom_setup.upper() == 'Y':
+		print('default setup chosen')
+	elif custom_setup.upper() == 'N':
+		print ('custom setup chosen')
+	else:
+		print ('we have a problem - not sure what chosen')
+	
+	
+def main():
+	setup()
+	
 
 if __name__ == "__main__":
 	test()
