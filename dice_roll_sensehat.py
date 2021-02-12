@@ -177,20 +177,22 @@ def process_player(i, players_dict, player_order, initials):
 	return players_dict, player_order, initials
 
 def test():
+	pass
+	
+def main():
+	print("Welcome to Settlers Fair Dice Engine!")
+
+	# set up the objects to hold player details
 	players_dict={}
 	player_order=[]
 	initials = set()
 	
-	for i in range(5):
+	n_players = input("How many players in the game? ")
+	for i in range(n_players):
 		players_dict, player_order, initials = process_player(i,
 			players_dict, player_order, initials)
+	print ('The players are:')
 	print (players_dict)
-	print (player_order)
-	print (initials)
-	#report(deck.pop(), 'Alice')
-	
-def main():
-	pass
 
 if __name__ == "__main__":
 	test()
