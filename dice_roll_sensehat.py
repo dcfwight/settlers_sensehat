@@ -220,7 +220,7 @@ def setup():
 	return players_dict, player_order, deck
 	
 def main():
-	setup()
+	players_dict, player_order, deck = setup()
 	print(deck)
 
 if __name__ == "__main__":
