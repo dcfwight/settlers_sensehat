@@ -212,7 +212,7 @@ def setup():
 		
 		n_remove = int(input('How many cards to remove? '))
 		n_add = int(input ('How many random cards to add? '))
-		deck = augment_deck(deck, n_remove = n_remmove, n_add = n_add)
+		deck = augment_deck(deck, n_remove = n_remove, n_add = n_add)
 		
 	else:
 		print ('we have a problem - not sure what chosen')
