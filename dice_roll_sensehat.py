@@ -1,5 +1,6 @@
 from random import choice, sample, shuffle, randint
 from sense_hat import SenseHat
+from time import sleep
 import os
 
 sense = SenseHat()
@@ -38,7 +39,11 @@ def augment_deck(deck, n_remove=0, n_add=0):
 
 def report(roll, player):
 	d1, d2 = roll
-	sense.show_letter('A')
+	for i in range(3):
+		sense.show_letter('A')
+		sleep(0.2)
+		sense.show_letter('7')
+		sleep(0.4)
 	print ('{} rolled {}. {} + {}'.format(player, d1+d2, d1, d2))
 
 def test():
