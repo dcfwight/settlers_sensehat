@@ -79,6 +79,7 @@ def construct_dice_display(d1,d2):
 	"""Creates the bottom half of the sense hat display showing dice"""
 	display = []
 	display+=numbers[2]
+	display+=[n for i in range(8)]
 	display+=d1[:3]
 	display+=[n,n]
 	display+=d2[:3]
@@ -93,6 +94,7 @@ def construct_dice_display(d1,d2):
 def test():
 	display = construct_dice_display(dice[1], dice[5])
 	print(display)
+	print (len(display))
 	sense.set_pixels(display)
 	sleep(2)
 	sense.clear()
