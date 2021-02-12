@@ -238,6 +238,7 @@ def main():
 		event=sense.stick.wait_for_event(emptybuffer=True)
 		turn(counter, player_order, players_dict, deck)
 		counter +=1
+		sleep(1) # add in to prevent multiple accidental presses of the joystick
 	
 
 if __name__ == "__main__":
