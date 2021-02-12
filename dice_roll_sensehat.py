@@ -6,7 +6,7 @@ def dice_throw():
 	return(randint(1,6), randint(1,6))
 
 def create_full_deck(n):
-	"""create n full decks"""
+	"""create n full decks, each with 36 tuples of the dice rolls"""
 	deck = []
 	for card in range(n):
 		for d1 in range (1,7):
