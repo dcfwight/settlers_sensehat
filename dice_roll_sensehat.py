@@ -137,7 +137,7 @@ numbers = {
 	]
 }
 
-dice = {
+dice_face = {
 	1: [n,n,n,n,b,n,n,n,n],
 	2: [n,b,n,n,n,n,n,b,n],
 	3: [n,n,b,n,b,n,b,n,n],
@@ -150,21 +150,21 @@ def construct_dice_display(d1,d2):
 	"""Creates the bottom half of the sense hat display showing dice"""
 	display = []
 	display+=numbers[d1+d2]
-	display+=d1[:3]
+	display+=dice_face[d1][:3]
 	display+=[n,n]
-	display+=d2[:3]
-	display+=d1[3:6]
+	display+=dice_face[d2][:3]
+	display+=dice_face[d1][3:6]
 	display+=[n,n]
-	display+=d2[3:6]
-	display+=d1[6:9]
+	display+=dice_face[d2][3:6]
+	display+=dice_face[d1][6:9]
 	display+=[n,n]
-	display+=d2[6:9]
+	display+=dice_face[[d2][6:9]
 	return display
 
 def test():
 	for i in range(1,7):
 		for j in range(1,7):
-			display = construct_dice_display(dice[i], dice[j])
+			display = construct_dice_display(i, j)
 			sense.set_pixels(display)
 			sleep(1)
 	sense.clear()
