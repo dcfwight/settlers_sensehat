@@ -38,6 +38,7 @@ def augment_deck(deck, n_remove=0, n_add=0):
 
 def report(roll, player):
 	d1, d2 = roll
+	sense.show_letter('A')
 	print ('{} rolled {}. {} + {}'.format(player, d1+d2, d1, d2))
 
 def test():
