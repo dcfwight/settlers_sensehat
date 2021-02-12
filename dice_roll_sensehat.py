@@ -40,7 +40,7 @@ def augment_deck(deck, n_remove=0, n_add=0):
 def report(roll, player):
 	d1, d2 = roll
 	while True:
-		if event.get_events():
+		if sense.stick.get_events():
 			break
 		sense.show_letter('A')
 		sleep(0.2)
