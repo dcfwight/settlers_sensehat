@@ -52,11 +52,11 @@ def report(roll, player):
 ##############################################################
 # here we have a load of strings for showing numbers and dice #
 
-r = (255,0,0) # red
-g = (0,255,0) # green
-b = (0,0,255) # blue
-n = (0,0,0) # dim white
-w = (255,255,255)
+r = (140,0,0) # red
+g = (0,200,0) # green
+b = (0,0,140) # blue
+n = (0,0,0) # blank
+w = (100,100,100) # dim white
 
 numbers = {
 	2: [
