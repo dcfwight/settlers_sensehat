@@ -218,10 +218,23 @@ def setup():
 		print ('we have a problem - not sure what chosen')
 
 	return players_dict, player_order, deck
-	
+
+def turn(counter, player_order, players_dict, deck):
+	(d1,d2) = deck.pop()
+	print ('Turn: {}'.format(counter+1)) # NB probably want to turn this off to avoid card-counting
+	print ("{} threw the dice".format(player_order[counter % len(player_order)]))
+	print ('{} thrown, {} and {}'.format(d1+d2, d1, d2))
+	return deck
+		   
+
 def main():
 	players_dict, player_order, deck = setup()
 	print(deck)
+	counter =0
+	for i in range(5):
+		turn(counter, player_order, players_dict, deck)
+		counter +=1
+	
 
 if __name__ == "__main__":
 	test()
