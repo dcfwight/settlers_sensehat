@@ -54,8 +54,9 @@ def report(roll, player):
 
 r = (255,0,0) # red
 g = (0,255,0) # green
-b = (0,0,255) # bluee
-n = (0,0,0)
+b = (0,0,255) # blue
+n = (50,50,50) # dim white
+w = (255,255,255)
 
 numbers = {
 	2: [
@@ -138,12 +139,12 @@ numbers = {
 }
 
 dice_face = {
-	1: [n,n,n,n,b,n,n,n,n],
-	2: [n,b,n,n,n,n,n,b,n],
-	3: [n,n,b,n,b,n,b,n,n],
-	4: [b,n,b,n,n,n,b,n,b],
-	5: [b,n,b,n,b,n,b,n,b],
-	6: [b,n,b,b,n,b,b,n,b]
+	1: [w,w,w,w,b,w,w,w,n],
+	2: [w,b,w,w,w,w,w,b,n],
+	3: [w,w,b,w,b,w,b,w,n],
+	4: [b,w,b,w,w,w,b,w,b],
+	5: [b,w,b,w,b,w,b,w,b],
+	6: [b,w,b,b,w,b,b,w,b]
 }
 
 def construct_dice_display(d1,d2):
