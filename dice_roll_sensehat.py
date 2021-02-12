@@ -61,9 +61,9 @@ w = (255,255,255)
 numbers = {
 	2: [
 	n,n,n,b,b,n,n,n,
-	n,n,b,n,b,n,n,n,
+	n,n,b,n,n,b,n,n,
+	n,n,n,n,b,n,n,n,
 	n,n,n,b,n,n,n,n,
-	n,n,b,n,n,n,n,n,
 	n,n,b,b,b,b,n,n
 	],
 	3: [
@@ -139,9 +139,9 @@ numbers = {
 }
 
 dice_face = {
-	1: [w,w,w,w,g,w,w,w,n],
-	2: [w,g,w,w,w,w,w,g,n],
-	3: [w,w,g,w,g,w,g,w,n],
+	1: [w,w,w,w,g,w,w,w,w],
+	2: [w,g,w,w,w,w,w,g,w],
+	3: [w,w,g,w,g,w,g,w,w],
 	4: [g,w,g,w,w,w,g,w,g],
 	5: [g,w,g,w,g,w,g,w,g],
 	6: [g,w,g,g,w,g,g,w,g]
