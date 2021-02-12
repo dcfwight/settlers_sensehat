@@ -18,20 +18,19 @@ def augment_deck(deck, n_remove=0, n_add=0):
 	"""from a deck of cards, shuffle them, remove n_remove cards
 	replace with n_return random cards"""
 	shuffle(deck) # this shuffles cards in-line
-	
+
 	# can only remove as many cards as there are in the deck
 	n_remove = min(len(deck), n_remove)
 	# cannot be negative
 	n_remove = max(0, n_remove)
-	
+
 	deck = sample(deck, len(deck) - n_remove)
-	
+
 	# Add in n_add random cards - these cannot be negative
 	n_add = max(0, n_add)
 	for i in range (n_add):
 		deck.append(dice_throw())
-	
-	
+
 	return deck
 
 def test():
