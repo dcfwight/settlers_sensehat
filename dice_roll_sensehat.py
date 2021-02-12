@@ -162,15 +162,29 @@ def construct_dice_display(d1,d2):
 	display+=dice_face[d2][6:9]
 	return display
 
+####################################################################
+players_dict={}
+player_order=[]
+initials = set()
+
+def process_player(i, players_dict, player_order, initials):
+	player_name = input("Name of player: {}? ".format(i+1))
+	player_order.append(player_name)
+	player_initial = player_name[0].upper()
+	while player_initial in initials:
+		print("Sorry, but your initial is already taken")
+		player_initial = input('What initial will you use instead? ')
+	players_dict[player_name]=player_initial.upper()
+	initials.add(player_initial.upper())
+	return players_dict, player_order, initials
+
 def test():
-	for i in range(1,7):
-		for j in range(1,7):
-			display = construct_dice_display(i, j)
-			sense.set_pixels(display)
-			sleep(1)
-	sense.clear()
-	deck = create_full_deck(2)
-	deck = augment_deck(deck, n_remove = 10, n_add=10)
+	for i in range(5):
+		players_dict, player_order, initials = process_player(i,
+			players_dict, player_order, initials)
+	print (players_dict)
+	print (player_order)
+	print (initials)
 	#report(deck.pop(), 'Alice')
 	
 def main():
