@@ -158,7 +158,7 @@ def construct_dice_display(d1,d2):
 	display+=dice_face[d2][3:6]
 	display+=dice_face[d1][6:9]
 	display+=[n,n]
-	display+=dice_face[[d2][6:9]
+	display+=dice_face[d2][6:9]
 	return display
 
 def test():
