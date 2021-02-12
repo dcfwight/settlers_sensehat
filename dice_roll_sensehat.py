@@ -48,7 +48,6 @@ def report(roll, player):
 		sleep(0.4)
 	print ('{} rolled {}. {} + {}'.format(player, d1+d2, d1, d2))
 	sense.clear()
-<<<<<<< HEAD
 
 ##############################################################
 # here we have a load of strings for showing numbers and dice #
@@ -89,8 +88,6 @@ def construct_dice_display(d1,d2):
 	display+=[n,n]
 	display+=d2[6,9]
 	return display
-=======
->>>>>>> refs/remotes/origin/main
 
 def test():
 	display = construct_dice_display(dice[1], dice[5])
