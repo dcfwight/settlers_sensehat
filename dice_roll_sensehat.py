@@ -187,7 +187,7 @@ def main():
 	player_order=[]
 	initials = set()
 	
-	n_players = input("How many players in the game? ")
+	n_players = int(nput("How many players in the game? "))
 	for i in range(n_players):
 		players_dict, player_order, initials = process_player(i,
 			players_dict, player_order, initials)
