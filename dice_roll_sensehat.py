@@ -234,7 +234,8 @@ def main():
 	print("Press the SenseHat joystick when ready to start")
 	event = sense.stick.wait_for_event(emptybuffer=True)
 	
-	for i in range(5):
+	while True:
+		event=sense.stick.wait_for_event(emptybuffer=True)
 		turn(counter, player_order, players_dict, deck)
 		counter +=1
 	
