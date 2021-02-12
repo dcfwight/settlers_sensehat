@@ -1,5 +1,8 @@
 from random import choice, sample, shuffle, randint
+from sense_hat import SenseHat
 import os
+
+sense = SenseHat()
 
 def dice_throw():
 	"""return a tuple of two dice randomly"""
