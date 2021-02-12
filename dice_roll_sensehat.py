@@ -86,7 +86,7 @@ def construct_dice_display(d1,d2):
 	display+=d2[3:6]
 	display+=d1[6:9]
 	display+=[n,n]
-	display+=d2[6,9]
+	display+=d2[6:9]
 	return display
 
 def test():
