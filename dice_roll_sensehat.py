@@ -163,9 +163,7 @@ def construct_dice_display(d1,d2):
 	return display
 
 ####################################################################
-players_dict={}
-player_order=[]
-initials = set()
+
 
 def process_player(i, players_dict, player_order, initials):
 	player_name = input("Name of player: {}? ".format(i+1))
@@ -179,6 +177,10 @@ def process_player(i, players_dict, player_order, initials):
 	return players_dict, player_order, initials
 
 def test():
+	players_dict={}
+	player_order=[]
+	initials = set()
+	
 	for i in range(5):
 		players_dict, player_order, initials = process_player(i,
 			players_dict, player_order, initials)
