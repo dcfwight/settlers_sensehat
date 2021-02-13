@@ -224,8 +224,9 @@ def setup():
 
 def turn(counter, player_order, players_dict, deck):
 	(d1,d2) = deck.pop()
+	player = player_order[counter % len(player_order)]
 	print ('Turn: {}'.format(counter+1)) # NB probably want to turn this off to avoid card-counting
-	print ("{} threw the dice".format(player_order[counter % len(player_order)]))
+	print ("{} threw the dice".format(player))
 	print ('{} thrown, {} and {}'.format(d1+d2, d1, d2))
 	report ((d1,d2), players_dict[player])
 	return (d1, d2), deck
