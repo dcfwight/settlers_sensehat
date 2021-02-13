@@ -44,7 +44,7 @@ def report(roll, initial):
 		if sense.stick.get_events():
 			break
 		sleep(0.2)
-		sense.set_pixels(d1, d2)
+		sense.set_pixels(construct_dice_display(d1, d2))
 		if sense.stick.get_events():
 			break
 		sleep(0.4)
