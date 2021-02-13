@@ -43,11 +43,11 @@ def report(roll, initial):
 		sense.show_letter(initial)
 		if sense.stick.get_events():
 			break
-		sleep(0.2)
+		sleep(0.3)
 		sense.set_pixels(construct_dice_display(d1, d2))
 		if sense.stick.get_events():
 			break
-		sleep(0.4)
+		sleep(1)
 	sense.clear()
 
 ##############################################################
@@ -181,9 +181,9 @@ def test():
 	pass
 
 def setup():
-	print ("*-"*12 + "*")
+	print ("*-"*16 + "*")
 	print("Welcome to Settlers Fair Dice Engine!")
-	print ("*-"*12 + "*")
+	print ("*-"*16 + "*")
 
 	# set up the objects to hold player details
 	players_dict={}
@@ -242,7 +242,7 @@ def main():
 	while True:
 		(d1, d2), deck = turn(counter, player_order, players_dict, deck)
 		counter +=1
-		# sleep(1) # add in to prevent multiple accidental presses of the joystick
+		sleep(0.5) # add in small pause to prevent multiple accidental presses of the joystick
 	
 
 if __name__ == "__main__":
