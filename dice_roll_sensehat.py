@@ -43,11 +43,11 @@ def report(roll, initial):
 		sense.show_letter(initial)
 		if sense.stick.get_events():
 			break
-		sleep(0.3)
+		sleep(0.4)
 		sense.set_pixels(construct_dice_display(d1, d2))
 		if sense.stick.get_events():
 			break
-		sleep(1)
+		sleep(1.2)
 	sense.clear()
 
 ##############################################################
@@ -181,6 +181,7 @@ def test():
 	pass
 
 def setup():
+	sense.clear()
 	print ("*-"*16 + "*")
 	print("Welcome to Settlers Fair Dice Engine!")
 	print ("*-"*16 + "*")
@@ -203,14 +204,19 @@ def setup():
 	while custom_setup.upper() not in ['Y','N']:
 		custom_setup = input('y for default, n to customise: ')
 	
+	# set the default settings for fast deck setup
+	n = 1
+	n_remove = 4
+	n_add = 4
+	
 	if custom_setup.upper() == 'Y':
 		print('default setup chosen')
-		deck = create_full_deck(1)
-		deck = augment_deck(deck, n_remove=4, n_add=4)
+		deck  = create_full_deck(n)
+		deck  = augment_deck(deck, n_remove=n_remove, n_add=n_add)
 	
 	elif custom_setup.upper() == 'N':
 		print ('custom setup chosen')
-		n_decks = int(input('How many decks of 36 cards do you want? '))
+		n = int(input('How many decks of 36 cards do you want? '))
 		deck = create_full_deck(n_decks)
 		
 		n_remove = int(input('How many cards to remove? '))
@@ -220,7 +226,7 @@ def setup():
 	else:
 		print ('we have a problem - not sure what chosen')
 
-	return players_dict, player_order, deck
+	return players_dict, player_order, deck, n, n_remove, n_add
 
 def turn(counter, player_order, players_dict, deck):
 	(d1,d2) = deck.pop()
@@ -238,12 +244,13 @@ def main():
 	print ('{} is first to go'.format(player_order[0]))
 	print("Press the SenseHat joystick when ready to roll the dice")
 	event = sense.stick.wait_for_event(emptybuffer=True)
-	
+	sleep(0.5)
 	while True:
 		(d1, d2), deck = turn(counter, player_order, players_dict, deck)
 		counter +=1
 		sleep(0.5) # add in small pause to prevent multiple accidental presses of the joystick
-	
+		if deck == []:
+			deck = 3
 
 if __name__ == "__main__":
 	test()
