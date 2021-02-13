@@ -37,16 +37,17 @@ def augment_deck(deck, n_remove=0, n_add=0):
 
 	return deck
 
-def report(roll, player):
+def report(roll, initial):
 	d1, d2 = roll
 	while True:
+		sense.show_letter(initial)
 		if sense.stick.get_events():
 			break
-		sense.show_letter('A')
 		sleep(0.2)
-		sense.show_letter('7')
+		sense.set_pixels(d1, d2)
+		if sense.stick.get_events():
+			break
 		sleep(0.4)
-	print ('{} rolled {}. {} + {}'.format(player, d1+d2, d1, d2))
 	sense.clear()
 
 ##############################################################
@@ -148,7 +149,7 @@ dice_face = {
 }
 
 def construct_dice_display(d1,d2):
-	"""Creates the bottom half of the sense hat display showing dice"""
+	"""Creates the sense hat display showing dice score and individual faces"""
 	display = []
 	display+=numbers[d1+d2]
 	display+=dice_face[d1][:3]
@@ -180,7 +181,9 @@ def test():
 	pass
 
 def setup():
+	print ("*-"*12 + "*")
 	print("Welcome to Settlers Fair Dice Engine!")
+	print ("*-"*12 + "*")
 
 	# set up the objects to hold player details
 	players_dict={}
@@ -224,21 +227,20 @@ def turn(counter, player_order, players_dict, deck):
 	print ('Turn: {}'.format(counter+1)) # NB probably want to turn this off to avoid card-counting
 	print ("{} threw the dice".format(player_order[counter % len(player_order)]))
 	print ('{} thrown, {} and {}'.format(d1+d2, d1, d2))
-	return deck
+	return (d1, d2), deck
 		   
 
 def main():
 	players_dict, player_order, deck = setup()
-	print(deck)
 	counter =0
-	print("Press the SenseHat joystick when ready to start")
+	print ('{} is first to go'.format(player_order[0]))
+	print("Press the SenseHat joystick when ready to roll the dice")
 	event = sense.stick.wait_for_event(emptybuffer=True)
 	
 	while True:
-		event=sense.stick.wait_for_event(emptybuffer=True)
-		turn(counter, player_order, players_dict, deck)
+		(d1, d2), deck = turn(counter, player_order, players_dict, deck)
 		counter +=1
-		sleep(1) # add in to prevent multiple accidental presses of the joystick
+		# sleep(1) # add in to prevent multiple accidental presses of the joystick
 	
 
 if __name__ == "__main__":
