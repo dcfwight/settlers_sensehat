@@ -41,11 +41,11 @@ def report(roll, initial):
 	d1, d2 = roll
 	while True:
 		sense.show_letter(initial)
-		if sense.stick.get_events():
+		if sense.stick.get_events(emptybuffer=True):
 			break
 		sleep(0.4)
 		sense.set_pixels(construct_dice_display(d1, d2))
-		if sense.stick.get_events():
+		if sense.stick.get_events(emptybuffer=True):
 			break
 		sleep(1.2)
 	sense.clear()
@@ -182,9 +182,9 @@ def test():
 
 def setup():
 	sense.clear()
-	print ("*-"*16 + "*")
+	print ("*-"*18 + "*")
 	print("Welcome to Settlers Fair Dice Engine!")
-	print ("*-"*16 + "*")
+	print ("*-"*18 + "*")
 
 	# set up the objects to hold player details
 	players_dict={}
