@@ -239,7 +239,7 @@ def turn(counter, player_order, players_dict, deck):
 		   
 
 def main():
-	players_dict, player_order, deck = setup()
+	players_dict, player_order, deck, n, n_remove, n_add = setup()
 	counter =0
 	print ('{} is first to go'.format(player_order[0]))
 	print("Press the SenseHat joystick when ready to roll the dice")
