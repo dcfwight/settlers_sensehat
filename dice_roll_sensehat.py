@@ -41,11 +41,11 @@ def report(roll, initial):
 	d1, d2 = roll
 	while True:
 		sense.show_letter(initial)
-		if sense.stick.get_events(emptybuffer=True):
+		if sense.stick.get_events():
 			break
 		sleep(0.4)
 		sense.set_pixels(construct_dice_display(d1, d2))
-		if sense.stick.get_events(emptybuffer=True):
+		if sense.stick.get_events():
 			break
 		sleep(1.2)
 	sense.clear()
@@ -244,6 +244,7 @@ def main():
 	print ('{} is first to go'.format(player_order[0]))
 	print("Press the SenseHat joystick when ready to roll the dice")
 	event = sense.stick.wait_for_event(emptybuffer=True)
+	event = sense.stick.get_events() # this will empty the list of events again.
 	sleep(0.5)
 	while True:
 		(d1, d2), deck = turn(counter, player_order, players_dict, deck)
