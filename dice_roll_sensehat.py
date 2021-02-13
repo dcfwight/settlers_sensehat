@@ -250,7 +250,8 @@ def main():
 		counter +=1
 		sleep(0.5) # add in small pause to prevent multiple accidental presses of the joystick
 		if deck == []:
-			deck = 3
+			deck = create_full_deck(n)
+			deck = augment_deck(deck, n_remove, n_add)
 
 if __name__ == "__main__":
 	test()
