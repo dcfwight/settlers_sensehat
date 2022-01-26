@@ -55,7 +55,7 @@ def report(roll, initial):
 
 r = (140,0,0) # red
 g = (0,200,0) # green
-b = (0,0,140) # blue
+b = (0,0,200) # blue
 n = (0,0,0) # blank
 w = (100,100,100) # dim white
 
